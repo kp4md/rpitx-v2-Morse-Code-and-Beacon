@@ -38,7 +38,7 @@ Run it
 
 	 ~/rpitx$ ./cw_beacon.sh
 
-# To replace the original "morse" executable for correction of element and character spacing and addition of punctuation:
+# To replace the original "morse" executable to correct element and character spacing to add punctuation:
 
 First, assure that [rpitx](https://github.com/F5OEO/rpitx) is installed on the Raspberry Pi.
 
