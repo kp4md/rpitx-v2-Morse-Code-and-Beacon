@@ -38,5 +38,5 @@ Make it Executable
  
 Run it
 
-./cw_beacon.sh
+ ~/rpitx$ ./cw_beacon.sh
 
