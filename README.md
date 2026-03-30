@@ -3,7 +3,7 @@
 
 # Implement a Morse code beacon using rpitx v2 on a Raspberry Pi:
 
-First, assure that [rpitx](https://github.com/F5OEO/rpitx) is installed on the Raspberry Pi.
+First, assure that [rpitx](https://github.com/F5OEO/rpitx) is installed and working on the Raspberry Pi.
 
 Add the [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) shell script into the rpitx folder as follows:
  
@@ -44,7 +44,7 @@ Follow the same procedure as above, but use the Nano text editor to replace the 
 
 # Replace the original "morse" executable to correct the element and character spacing and to add punctuation:
 
-First, assure that [rpitx](https://github.com/F5OEO/rpitx) is installed on the Raspberry Pi.
+First, assure that [rpitx](https://github.com/F5OEO/rpitx) is installed and working on the Raspberry Pi.
 
 Access the command-line interface by opening a Terminal window or ssh into your Raspberry Pi and Navigate to the /rpitx/src/morse folder.
 
