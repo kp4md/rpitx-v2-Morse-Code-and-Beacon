@@ -30,7 +30,7 @@ Enter
 	 Ctrl+X
 
  
-Make it Executable.
+Make cw_beacon.sh Executable.
 
 	 ~/rpitx$ chmod +x cw_beacon.sh
 
