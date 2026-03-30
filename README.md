@@ -11,12 +11,12 @@ ssh into the RPi
  
 Navigate to the rpitx folder
 
-cd rpitx
+ ~$ cd rpitx
 
  
 Create the file
 
-nano cw_beacon.sh
+ ~/rpitx$ nano cw_beacon.sh
 
  
 Paste the cw_beacon.sh code into Nano
@@ -24,16 +24,16 @@ Paste the cw_beacon.sh code into Nano
  
 Save and exit from Nano 
 
-Ctrl+O
+ Ctrl+O
 
 Enter
 
-Ctrl+X
+ Ctrl+X
 
  
 Make it Executable
 
-chmod +x cw_beacon.sh
+ ~/rpitx$ chmod +x cw_beacon.sh
 
  
 Run it
