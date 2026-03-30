@@ -13,7 +13,7 @@ Open the Terminal: Access the command-line interface on your Raspberry Pi and Na
 	~$ cd rpitx
 
  
-Create the file
+Open the Nano text editor to create the file
 
  	~/rpitx$ nano cw_beacon.sh
 
