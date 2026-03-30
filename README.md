@@ -18,7 +18,7 @@ Create the file
  	~/rpitx$ nano cw_beacon.sh
 
  
-Paste the [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) code into Nano.
+Copy and paste the [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) code into the Nano edit window.
 
  
 Save and exit from Nano. 
