@@ -5,24 +5,38 @@ Implement a Morse code beacon using rpitx v2 on a Raspberry Pi as follows:
 Add cw_beacon.sh shell script in the rpitx folder, substituting your own Frequency, Morse Code speed, Cycle period and Message into the first four declarations.
  
 To create the executable script:
+
 ssh into the RPi 
+
  
 Navigate to the rpitx folder
+
 cd rpitx
+
  
 Create the file
+
 nano cw_beacon.sh
+
  
 Paste the cw_beacon.sh code into Nano
+
  
 Save and exit from Nano 
+
 Ctrl+O
+
 Enter
+
 Ctrl+X
+
  
 Make it Executable
+
 chmod +x cw_beacon.sh
+
  
 Run it
+
 ./cw_beacon.sh
 
