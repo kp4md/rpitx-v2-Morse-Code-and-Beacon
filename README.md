@@ -38,7 +38,11 @@ Run it
 
 	 ~/rpitx$ ./cw_beacon.sh
 
-# To replace the original "morse" executable to correct element and character spacing and to add punctuation:
+# Add a Simple Morse Beacon to the easytest.sh script menu options.
+
+Follow the same procedure as above, but use the Nano text editor to replace the original easytest.sh script with [this one](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/easytest.sh).  You can edit the script to change the 15 WPM speed and the repeating "VVV DE *callsign*" message.  Enter Ctrl-C to stop the repeating beacon.
+
+# To replace the original "morse" executable to correct the element and character spacing and to add punctuation:
 
 First, assure that [rpitx](https://github.com/F5OEO/rpitx) is installed on the Raspberry Pi.
 
