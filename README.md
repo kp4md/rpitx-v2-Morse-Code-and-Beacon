@@ -1,7 +1,7 @@
 # rpitx-v2-Morse-Code-and-Beacon
 [Rpitx v2 by Evariste Courjaud, F5OEO](https://github.com/F5OEO/rpitx), renders Morse Code that is difficult to decode due to unusual element and character spacing and rhythm.  Here are an improved morse C++ source code and executable that correct the timing, adds the International Morse Code punctuation, and a new bash script that implements a repeated Morse Code beacon message.
 
-# To implement a Morse code beacon using rpitx v2 on a Raspberry Pi:
+# Implement a Morse code beacon using rpitx v2 on a Raspberry Pi:
 
 First, assure that [rpitx](https://github.com/F5OEO/rpitx) is installed on the Raspberry Pi.
 
@@ -42,7 +42,7 @@ Run it
 
 Follow the same procedure as above, but use the Nano text editor to replace the original easytest.sh script with [this one](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/easytest.sh).  You can edit the script to change the 15 WPM speed and the repeating "VVV DE *callsign*" message.  Enter Ctrl-C to stop the repeating beacon.
 
-# To replace the original "morse" executable to correct the element and character spacing and to add punctuation:
+# Replace the original "morse" executable to correct the element and character spacing and to add punctuation:
 
 First, assure that [rpitx](https://github.com/F5OEO/rpitx) is installed on the Raspberry Pi.
 
