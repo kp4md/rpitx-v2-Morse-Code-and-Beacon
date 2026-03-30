@@ -3,14 +3,14 @@
 
 # To implement a Morse code beacon using rpitx v2 on a Raspberry Pi:
 
-First, Install [rpitx](https://github.com/F5OEO/rpitx) on the Raspberry Pi.
+First, assure that [rpitx](https://github.com/F5OEO/rpitx) is installed on the Raspberry Pi.
 
 Add the [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) shell script into the rpitx folder as follows:
  
 To create the executable script, ssh into the RPi 
 
  
-Open the Terminal: Access the command-line interface on your Raspberry Pi and Navigate to the rpitx folder.
+Access the command-line interface by opening a Terminal window or ssh into your Raspberry Pi and Navigate to the rpitx folder.
 
 	~$ cd rpitx
 
@@ -26,12 +26,8 @@ Edit the script substituting your own Frequency, Morse Code speed, Cycle period 
  
 Save and exit from Nano. 
 
-	 Ctrl+O
-
-Enter
-
-	 Ctrl+X
-
+	Ctrl+O → Enter
+	Ctrl+X
  
 Make cw_beacon.sh Executable.
 
@@ -42,3 +38,54 @@ Run it
 
 	 ~/rpitx$ ./cw_beacon.sh
 
+# To replace the original "morse" executable for correction of element and character spacing and addition of punctuation:
+
+First, assure that [rpitx](https://github.com/F5OEO/rpitx) is installed on the Raspberry Pi.
+
+Access the command-line interface by opening a Terminal window or ssh into your Raspberry Pi and Navigate to the /rpitx/src/morse folder.
+
+	~$ cd rpitx/src/morse
+
+Backup the original morse.cpp source code file.
+
+	~/rpitx/src/morse$ cp morse.cpp morse.cpp.original
+
+Now you can always restore it if necessary with: cp morse.cpp.original morse.cpp
+
+Use the Nano text editor to replace the old morse source code file.
+
+Open the morse.cpp file:
+
+	~/rpitx/src/morse$ nano morse.cpp
+
+Delete everything inside (Ctrl+K repeatedly).
+
+Copy and Paste the full updated [morse.cpp](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/src/morse.cpp) source code into the Nano edit window.
+
+Save:
+
+	Ctrl+O → Enter
+	Ctrl+X
+
+Return to the rpitx directory and clean any old build.
+
+	~/rpitx/src/morse$ cd ~/rpitx
+	~/rpitx$ rm -f *.o morse
+
+Compile the morse.cpp course code
+
+	~/rpitx$ g++ -o morse src/morse/morse.cpp -I./librpitx -L./librpitx -lrpitx
+	
+Now you can try it. 
+
+FORMAT:
+
+	sudo ./morse frequency(Hz) WPM "MESSAGE"
+
+HF EXAMPLE (sends CQ CQ TEST once on 7.030 MHz at 15 WPM):
+
+	sudo ./morse 7030000 15 "CQ CQ TEST"
+
+VHF EXAMPLE (sends CQ CQ TEST once on 7.030 MHz at 15 WPM):
+
+	sudo ./morse 144100000 20 "CQ CQ TEST"
