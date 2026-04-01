@@ -1,5 +1,5 @@
 # rpitx v2 Morse Code and CW Beacon
-[Rpitx v2 by Evariste Courjaud, F5OEO](https://github.com/F5OEO/rpitx), renders Morse Code that may be difficult to decode due to unusual element and character spacing and rhythm.  Here are an improved morse C++ source code and executable that correct the timing, adds the International Morse Code punctuation, and bash scripts that implement a repeated CW Morse Code beacon message.
+[Rpitx v2 by Evariste Courjaud, F5OEO](https://github.com/F5OEO/rpitx), runs a Raspberry Pi single board computer as a low power (~10 dBm) radio frequency transmitter with various modulation schemes.  The Morse Code emissions may be difficult to decode due to unusual element and character spacing and rhythm.  Here are an improved morse C++ source code and executable that correct the timing, adds the International Morse Code punctuation, and bash scripts that implement a repeated CW Morse Code beacon message.
 
 # Implement a CW Morse code beacon with rpitx v2 on a Raspberry Pi:
 
