@@ -34,7 +34,7 @@ Make cw_beacon.sh Executable.
 	 ~/rpitx$ chmod +x cw_beacon.sh
 
  
-Run it
+Run it from the rpitx directory.
 
 	 ~/rpitx$ ./cw_beacon.sh
 
