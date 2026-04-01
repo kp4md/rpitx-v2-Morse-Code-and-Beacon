@@ -76,7 +76,7 @@ Return to the rpitx directory and clean any old build.
 	~/rpitx/src/morse$ cd ~/rpitx
 	~/rpitx$ rm -f *.o morse
 
-Compile the morse.cpp course code
+Compile the morse.cpp source code
 
 	~/rpitx$ g++ -o morse src/morse/morse.cpp -I./librpitx -L./librpitx -lrpitx
 	
