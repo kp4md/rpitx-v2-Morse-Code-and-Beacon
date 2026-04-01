@@ -90,6 +90,6 @@ HF EXAMPLE (sends CQ CQ TEST once on 7.030 MHz at 15 WPM):
 
 	sudo ./morse 7030000 15 "CQ CQ TEST"
 
-VHF EXAMPLE (sends CQ CQ TEST once on 7.030 MHz at 15 WPM):
+VHF EXAMPLE (sends CQ CQ TEST once on 144.1 MHz at 20 WPM):
 
 	sudo ./morse 144100000 20 "CQ CQ TEST"
