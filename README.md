@@ -1,7 +1,7 @@
 # rpitx v2 Morse Code and CW Beacon
 [Rpitx v2 by Evariste Courjaud, F5OEO](https://github.com/F5OEO/rpitx), runs a Raspberry Pi single board computer as a low power (~10 dBm) radio frequency transmitter with various modulation schemes.  The Morse Code emissions may be difficult to decode due to unusual element and character spacing and rhythm.  Here are an improved morse C++ source code and executable that correct the timing, adds the International Morse Code punctuation, and bash scripts that implement a repeated CW Morse Code beacon message.
 
-## Video of Rpitx's 10 mW 7038 kHz test signal heard at KPH WebSDR in Point Reyes, CA
+## Video of Rpitx's 10 mW 7038 kHz test signal heard at KPH WebSDR in Point Reyes, CA (160 km)
 [![Rpitx's 10 mW 7038 kHz test signal heard in Point Reyes, CA](https://img.youtube.com/vi/-MB4Yt-R6-c/0.jpg)](https://www.youtube.com/watch?v=-MB4Yt-R6-c)
 
 # Implement a CW Morse code beacon with rpitx v2 on a Raspberry Pi:
