@@ -21,98 +21,95 @@
 typedef struct morse_code
 {
     uint8_t ch;
-    const char dits[12];
+    const char dits[8];   // no padding spaces anymore
 } Morsecode;
 
-/* ================= Morse Table ================= */
+/* ================= Morse Table (NO SPACES!) ================= */
 
 const Morsecode code_table[] =
 {
-    {' ', "       "},      // 7 dot word gap
+    {' ', ""},   // handled separately
 
     // Numbers
-    {'0', "-----  "},
-    {'1', ".----  "},
-    {'2', "..---  "},
-    {'3', "...--  "},
-    {'4', "....-  "},
-    {'5', ".....  "},
-    {'6', "-....  "},
-    {'7', "--...  "},
-    {'8', "---..  "},
-    {'9', "----.  "},
+    {'0', "-----"},
+    {'1', ".----"},
+    {'2', "..---"},
+    {'3', "...--"},
+    {'4', "....-"},
+    {'5', "....."},
+    {'6', "-...."},
+    {'7', "--..."},
+    {'8', "---.."},
+    {'9', "----."},
 
     // Letters
-    {'A', ".-  "},
-    {'B', "-...  "},
-    {'C', "-.-.  "},
-    {'D', "-..  "},
-    {'E', ".  "},
-    {'F', "..-.  "},
-    {'G', "--.  "},
-    {'H', "....  "},
-    {'I', "..  "},
-    {'J', ".---  "},
-    {'K', "-.-  "},
-    {'L', ".-..  "},
-    {'M', "--  "},
-    {'N', "-.  "},
-    {'O', "---  "},
-    {'P', ".--.  "},
-    {'Q', "--.-  "},
-    {'R', ".-.  "},
-    {'S', "...  "},
-    {'T', "-  "},
-    {'U', "..-  "},
-    {'V', "...-  "},
-    {'W', ".--  "},
-    {'X', "-..-  "},
-    {'Y', "-.--  "},
-    {'Z', "--..  "},
+    {'A', ".-"},
+    {'B', "-..."},
+    {'C', "-.-."},
+    {'D', "-.."},
+    {'E', "."},
+    {'F', "..-."},
+    {'G', "--."},
+    {'H', "...."},
+    {'I', ".."},
+    {'J', ".---"},
+    {'K', "-.-"},
+    {'L', ".-.."},
+    {'M', "--"},
+    {'N', "-."},
+    {'O', "---"},
+    {'P', ".--."},
+    {'Q', "--.-"},
+    {'R', ".-."},
+    {'S', "..."},
+    {'T', "-"},
+    {'U', "..-"},
+    {'V', "...-"},
+    {'W', ".--"},
+    {'X', "-..-"},
+    {'Y', "-.--"},
+    {'Z', "--.."},
 
     // Punctuation
-    {'.', ".-.-.-  "},
-    {',', "--..--  "},
-    {'?', "..--..  "},
-    {'/', "-..-.  "},
-    {'=', "-...-  "},
-    {'+', ".-.-.  "},
-    {'-', "-....-  "},
-    {'(', "-.--.  "},
-    {')', "-.--.-  "},
-    {':', "---...  "},
-    {';', "-.-.-.  "},
-    {'\'', ".----.  "},
-    {'"', ".-..-.  "},
-    {'@', ".--.-.  "},
-    {'!', "-.-.--  "}
+    {'.', ".-.-.-"},
+    {',', "--..--"},
+    {'?', "..--.."},
+    {'/', "-..-."},
+    {'=', "-...-"},
+    {'+', ".-.-."},
+    {'-', "-....-"},
+    {'(', "-.--."},
+    {')', "-.--.-"},
+    {':', "---..."},
+    {';', "-.-.-."},
+    {'\'', ".----."},
+    {'"', ".-..-."},
+    {'@', ".--.-."},
+    {'!', "-.-.--"}
 };
 
-/* ================= Morse → CW Bitstream ================= */
+/* ================= Morse ? CW Bitstream ================= */
 
 std::string morse_to_cw(const char * dits)
 {
     std::string cw;
-
     int len = strlen(dits);
 
     for (int i = 0; i < len; i++)
     {
         if (dits[i] == '.')
         {
-            cw += "1";     // dot = 1 unit
-            cw += "0";     // intra-element gap
+            cw += "1";
         }
         else if (dits[i] == '-')
         {
-            cw += "111";   // dash = 3 units
-            cw += "0";     // intra-element gap
+            cw += "111";
         }
-        else if (dits[i] == ' ')
+
+        // Add intra-element gap IF NOT last element
+        if (i < len - 1)
         {
-            // Character gap must equal 3 units total.
-            // 1 zero already added after last element.
-            cw += "00";
+            cw += "0";
         }
     }
 
@@ -123,9 +120,8 @@ std::string morse_to_cw(const char * dits)
 
 void Send_CW_OOK(const float freq, float wpm, const std::string &cw)
 {
-    // True ITU timing
     float dot_ms = 1200.0f / wpm;
-    float symbolrate = 1000.0f / dot_ms;   // symbols per second
+    float symbolrate = 1000.0f / dot_ms;
 
     int FifoSize = cw.length();
     float upsample = 100.0f;
@@ -146,7 +142,7 @@ void Send_CW_OOK(const float freq, float wpm, const std::string &cw)
 
 /* ================= Lookup ================= */
 
-char * text_to_morse(const char txt)
+const char * text_to_morse(char txt)
 {
     char tch = toupper(txt);
 
@@ -154,11 +150,11 @@ char * text_to_morse(const char txt)
     {
         if (code_table[j].ch == tch)
         {
-            return (char*)code_table[j].dits;
+            return code_table[j].dits;
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 /* ================= MAIN ================= */
@@ -177,20 +173,36 @@ int main(int argc, char * argv[])
 
     printf("msg: %s\n", msg);
 
+    std::string full_cw;
+
     for (int i = 0; i < strlen(msg); i++)
     {
-        char *dits = text_to_morse(msg[i]);
-
-        if (dits == 0)
+        if (msg[i] == ' ')
+        {
+            // word gap = 7 zeros
+            full_cw += "0000000";
             continue;
+        }
+
+        const char *dits = text_to_morse(msg[i]);
+        if (!dits) continue;
 
         std::string cw = morse_to_cw(dits);
 
         printf("msg[%02d]: %c\tmorse[%s]\tcw[%s]\n",
                i, toupper(msg[i]), dits, cw.c_str());
 
-        Send_CW_OOK(freq, wpm, cw);
+        full_cw += cw;
+
+        // character gap = 3 zeros
+        // BUT avoid adding after last character or before space
+        if (i < strlen(msg) - 1 && msg[i+1] != ' ')
+        {
+            full_cw += "000";
+        }
     }
+
+    Send_CW_OOK(freq, wpm, full_cw);
 
     return 0;
 }
