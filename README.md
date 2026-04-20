@@ -3,8 +3,7 @@
 
 I also present bash scripts that implement a repeated CW Morse Code beacon message for rpitx-ui and for rpitx v2.
 
-**Igor Nikolaevich's [rpitx-ui](https://github.com/IgrikXD/rpitx-ui)** already includes the punctuation and produces well-spaced Morse Code characters and words.  
-Use the [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon-ui.sh) script to implement the CW beacon function in rpitx-ui.
+**Igor Nikolaevich's [rpitx-ui](https://github.com/IgrikXD/rpitx-ui)** already includes the punctuation and produces well-spaced Morse Code characters and words.  Use the [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon-ui.sh) script to implement the CW beacon function in rpitx-ui.
 
 ## Video of Rpitx's 10 mW 7038 kHz test signal heard at KPH WebSDR in Point Reyes, CA (160 km)
 [![Rpitx's 10 mW 7038 kHz test signal heard in Point Reyes, CA](https://img.youtube.com/vi/-MB4Yt-R6-c/0.jpg)](https://www.youtube.com/watch?v=-MB4Yt-R6-c)
