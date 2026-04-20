@@ -2,40 +2,101 @@
 
 # ==============================
 # Continuous CW Beacon Script
-# For rpitx v2 - Pi Zero 2 W
+# Interactive + FIXED Validation
 # ==============================
 
-FREQ=28050000         # Frequency in Hz
-WPM=18                # Morse speed
-PERIOD=20             # Total beacon cycle length (seconds)
-MSG="VVV DE KP4MD/B CM98IQ"
+# Default values
+FREQ=28050000
+WPM=20
+PERIOD=20
+MSG="TEST TEST DE Callsign Callsign +"
 
-trap "echo 'Beacon stopped.'; exit" INT
+echo "=============================="
+echo " CW Beacon Configuration"
+echo "=============================="
+echo "Press ENTER to keep default values"
+echo
 
-echo "CW Beacon Started"
+# ----------- INPUT FUNCTION -----------
+
+get_positive_integer() {
+    local prompt="$1"
+    local default="$2"
+    local value
+
+    while true; do
+        read -p "$prompt [$default]: " value
+
+        # Use default if empty
+        if [[ -z "$value" ]]; then
+            echo "$default"
+            return
+        fi
+
+        # Check numeric
+        if ! [[ "$value" =~ ^[0-9]+$ ]]; then
+            echo "Error: Input must be a positive integer (numbers only)." >&2
+            continue
+        fi
+
+        # Check > 0
+        if (( value <= 0 )); then
+            echo "Error: Value must be greater than zero." >&2
+            continue
+        fi
+
+        echo "$value"
+        return
+    done
+}
+
+# ----------- PROMPTS -----------
+
+FREQ=$(get_positive_integer "Enter Frequency in Hz" "$FREQ")
+WPM=$(get_positive_integer "Enter Speed (WPM)" "$WPM")
+PERIOD=$(get_positive_integer "Enter Beacon Period (seconds)" "$PERIOD")
+
+# Message input
+read -p "Enter Message [$MSG]: " input
+if [[ -n "$input" ]]; then
+    MSG="$input"
+fi
+
+# ----------- START INFO -----------
+
+echo
+echo "=============================="
+echo " Beacon Starting"
+echo "=============================="
 echo "Frequency: $FREQ Hz"
-echo "Speed: $WPM WPM"
-echo "Period: $PERIOD seconds"
+echo "Speed:     $WPM WPM"
+echo "Period:    $PERIOD seconds"
+echo "Message:   $MSG"
 echo "Press Ctrl+C to stop."
 echo
+
+# ----------- CLEAN EXIT -----------
+
+trap "echo; echo 'Beacon stopped.'; exit" INT
+
+# ----------- MAIN LOOP -----------
 
 while true
 do
     START=$(date +%s)
 
-    # Transmit message ONCE
+    echo "Sending:   $MSG"
     sudo ./morse $FREQ $WPM "$MSG" >/dev/null 2>/dev/null
 
-    # Mandatory 3-second pause
+    echo "Pausing:  Press Ctrl+C now to stop."
     sleep 3
 
     END=$(date +%s)
     ELAPSED=$((END - START))
 
-    # Calculate remaining time in beacon cycle
     REMAIN=$((PERIOD - ELAPSED))
 
-    if [ $REMAIN -gt 0 ]; then
+    if (( REMAIN > 0 )); then
         sleep $REMAIN
     fi
 done
