@@ -1,5 +1,7 @@
 # rpitx-ui & rpitx v2 Morse Code and CW Beacon
-[Rpitx v2](https://github.com/F5OEO/rpitx) by Evariste Courjaud, F5OEO, runs a Raspberry Pi single board computer as a low power (~10 dBm) radio frequency transmitter with various modulation schemes.  The Morse Code emissions may be difficult to decode due to unusual element and character spacing and rhythm.  Here are an improved morse C++ source code and executable that correct the timing, adds the International Morse Code punctuation, and bash scripts that implement a repeated CW Morse Code beacon message.
+[Rpitx v2](https://github.com/F5OEO/rpitx) by Evariste Courjaud, F5OEO, runs a Raspberry Pi single board computer as a low power (~10 dBm) radio frequency transmitter with various modulation schemes.  The Morse Code emissions produced by rpitx v2 may be difficult to decode due to unusual element and character spacing and rhythm.  Here is an improved morse C++ source code and executable that corrects the timing and adds the International Morse Code punctuation to rpitx v2.  
+
+I also present bash scripts that implement a repeated CW Morse Code beacon message for rpitx-ui and for rpitx v2.
 
 Igor Nikolaevich's [rpitx-ui](https://github.com/IgrikXD/rpitx-ui) already produces well-spaced Morse Code characters and words.  
 Use the [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon-ui.sh) script to implement the CW beacon function in rpitx-ui.
@@ -73,7 +75,7 @@ Run it from the rpitx-ui directory.
 
 	 ~/rpitx-ui$ ./cw_beacon-ui.sh
 
-# (For rpitx v2) Add a Simple Morse Beacon to the easytest.sh script menu options.
+# (For rpitx v2 only) Add a Simple Morse Beacon to the easytest.sh script menu options.
 
 Follow the same procedure as above, but use the Nano text editor to replace the original easytest.sh script with [this one](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/easytest.sh).  You can edit line 244 of the script to change the 15 WPM speed and the repeating "VVV DE *callsign*" message.  Enter Ctrl-C to stop the repeating beacon.
 
@@ -128,3 +130,7 @@ HF EXAMPLE (sends CQ CQ TEST once on 7.030 MHz at 15 WPM):
 VHF EXAMPLE (sends CQ CQ TEST once on 144.1 MHz at 20 WPM):
 
 	sudo ./morse 144100000 20 "CQ CQ TEST"
+
+# Contact information:
+* Groups.io: [Carol KP4MD at rpitx@Groups.io](https://groups.io/g/rpitx/)
+* Email: [kp4md@arrl.net](mailto:kp4md@arrl.net)
