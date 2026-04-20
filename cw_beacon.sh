@@ -122,7 +122,7 @@ do
     sudo ./morse $FREQ $WPM "$MSG" >/dev/null 2>/dev/null
 
     echo "Pausing: Press Ctrl+C now to stop."
-    sleep 3
+    sleep 2
 
     END=$(date +%s)
     ELAPSED=$((END - START))
