@@ -22,7 +22,7 @@ Access the command-line interface by opening a Terminal window or ssh into your 
  
 Open the Nano text editor to create the file
 
-	For rpitx-ui 	~/rpitx-ui$ nano cw_beacon-ui.sh
+ 	~/rpitx-ui$ nano cw_beacon-ui.sh
  
 Copy and paste this [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon-ui.sh) code into the Nano edit window.
 
