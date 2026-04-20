@@ -11,7 +11,7 @@ Use the [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beaco
 
 First, assure that [rpitx-ui](https://github.com/IgrikXD/rpitx-ui) is installed and working on the Raspberry Pi.
 
-Add the [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) shell script into the rpitx folder as follows:
+Add the [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon-ui.sh) shell script into the rpitx-ui folder as follows:
  
 To create the executable script, ssh into the RPi 
  
