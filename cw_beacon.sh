@@ -86,6 +86,11 @@ fi
 
 # ----------- START INFO -----------
 
+sudo timedatectl set-ntp false
+
+echo
+echo "The Network Time Sync (NTP) is disabled to prevent frequency jumps."
+
 echo
 echo "=============================="
 echo " Beacon Starting"
@@ -99,7 +104,7 @@ echo
 
 # ----------- CLEAN EXIT -----------
 
-trap "echo; echo 'Beacon stopped.'; exit" INT
+trap "echo; echo 'Beacon stopped.'; sudo timedatectl set-ntp true; echo; echo 'The Network Time Sync (NTP) is now enabled.'; echo; exit" INT
 
 
 # ----------- MAIN LOOP -----------
@@ -136,3 +141,9 @@ do
 done
 
 echo "Beacon finished."
+
+sudo timedatectl set-ntp true
+
+echo
+echo "The Network Time Sync (NTP) is now enabled."
+echo
