@@ -9,7 +9,7 @@ Use the [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beaco
 
 # Implement a CW Morse code beacon with rpitx-ui on a Raspberry Pi: (Jump to the Section below for rpitx v2)
 
-First, assure that [rpitx v2](https://github.com/F5OEO/rpitx) or [rpitx-ui](https://github.com/IgrikXD/rpitx-ui) is installed and working on the Raspberry Pi.
+First, assure that [rpitx-ui](https://github.com/IgrikXD/rpitx-ui) is installed and working on the Raspberry Pi.
 
 Add the [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) shell script into the rpitx folder as follows:
  
@@ -42,7 +42,7 @@ Run it from the rpitx-ui directory.
 
 # Implement a CW Morse code beacon with rpitx v2 on a Raspberry Pi: 
 
-First, assure that [rpitx v2](https://github.com/F5OEO/rpitx) or [rpitx-ui](https://github.com/IgrikXD/rpitx-ui) is installed and working on the Raspberry Pi.
+First, assure that [rpitx v2](https://github.com/F5OEO/rpitx) is installed and working on the Raspberry Pi.
 
 Add the [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) shell script into the rpitx folder as follows:
  
