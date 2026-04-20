@@ -241,7 +241,9 @@ do_freq_setup
       		if [ $abort_action -eq 0 ]; then
      				while true
       				do
-				"./morse" "$OUTPUT_FREQ""e6" 15 "VVV DE $CALLSIGN" >/dev/null 2>/dev/null 
+				echo "Sending Message."
+				sudo "./morse" "$OUTPUT_FREQ""e6" 15 "VVV DE $CALLSIGN" >/dev/null 2>/dev/null 
+                                echo "Pausing:  Press Ctrl+C now to stop."
 				sleep 3
       				done
         			do_status
