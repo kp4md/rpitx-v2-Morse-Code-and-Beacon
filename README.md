@@ -25,7 +25,7 @@ Open the Nano text editor to create the file
  
 Copy and paste this [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) code into the Nano edit window.
 
-Edit lines 8-11 of the script substituting your own Frequency, Morse Code speed, Cycle period and Message into the first four declarations of the script. 
+You may edit lines 9-12 of the script substituting your own default Frequency, Morse Code speed, Cycle period and Message into the first four declarations of the script. 
  
 Save and exit from Nano. 
 
