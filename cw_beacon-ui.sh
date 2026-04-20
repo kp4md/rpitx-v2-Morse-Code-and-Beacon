@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # ==============================
-# Continuous CW Beacon Script
+# Continuous CW Beacon Script by Carol Milazzo, KP4MD. For use with Ihar Yatsevich's rpitx-ui
 # Interactive + Validation + Max Count
 # ==============================
 
-# Default values
+# Default values.  Replace Callsign in MSG with your own identifier.
 FREQ=28050000
 WPM=20
 PERIOD=20
@@ -95,7 +95,6 @@ echo "Speed:     $WPM WPM"
 echo "Period:    $PERIOD seconds"
 echo "Max Count: $MAXLOOPS"
 echo "Message:   $MSG"
-echo "Press Ctrl+C to stop."
 echo
 
 # ----------- CLEAN EXIT -----------
@@ -113,7 +112,7 @@ do
 
     ((n++))
 
-    printf "%s Sending #%d: %s\n" "$(date -u '+%Y-%m-%d %H:%M:%S')" "$n" "$MSG"
+    printf "%s UTC Sending #%d: %s\n" "$(date -u '+%Y-%m-%d %H:%M:%S')" "$n" "$MSG"
 
     testmorse.sh $FREQ $WPM "$MSG" >/dev/null 2>/dev/null
 
@@ -130,9 +129,9 @@ do
         sleep $REMAIN
     fi
 
-    # ✅ Move exit condition HERE
+    # Exit condition check
     if (( MAXLOOPS > 0 && n >= MAXLOOPS )); then
-        echo "Reached maximum loop count ($MAXLOOPS). Exiting."
+        echo "Reached maximum count ($MAXLOOPS). Exiting."
         break
     fi
 done
