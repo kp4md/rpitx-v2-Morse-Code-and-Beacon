@@ -74,9 +74,9 @@ Make cw_beacon.sh Executable.
 
 	 ~/rpitx$ chmod +x cw_beacon.sh
 
-Run it from the rpitx-ui directory.
+Run it from the rpitx directory.
 
-	 ~/rpitx-ui$ ./cw_beacon-ui.sh
+	 ~/rpitx$ ./cw_beacon.sh
 
 # Execute the Morse Code Beacon
 
