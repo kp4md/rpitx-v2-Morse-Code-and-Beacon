@@ -106,7 +106,6 @@ echo
 
 trap "echo; echo 'Beacon stopped.'; sudo timedatectl set-ntp true; echo; echo 'The Network Time Sync (NTP) is now enabled.'; echo; exit" INT
 
-
 # ----------- MAIN LOOP -----------
 
 n=0
@@ -117,7 +116,10 @@ do
 
     ((n++))
 
-    printf "%s UTC Sending #%d: %s\n" "$(date -u '+%Y-%m-%d %H:%M:%S')" "$n" "$MSG"
+    if [[ $MAXLOOPS -gt 0 ]]; then
+		printf "%s UTC Sending #%d of %d: %s\n" "$(date -u '+%Y-%m-%d %H:%M:%S')" "$n" "$MAXLOOPS" "$MSG"
+		else printf "%s UTC Sending #%d: %s\n" "$(date -u '+%Y-%m-%d %H:%M:%S')" "$n" "$MSG"
+	fi
 
     testmorse.sh $FREQ $WPM "$MSG" >/dev/null 2>/dev/null
 
