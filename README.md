@@ -2,9 +2,11 @@
 
 **Ihar Yatsevich's [rpitx-ui](https://github.com/IgrikXD/rpitx-ui)** for Raspberry Pi OS 64-bit Trixie and **Evariste Courjaud, F5OEO's [Rpitx v2](https://github.com/F5OEO/rpitx)** for Bookworm and earlier Raspberry Pi OS versions turn a Raspberry Pi single board computer into a low power (~10 dBm) radio frequency transmitter with various modulation schemes.  
 
-The Bash scripts here implement a repeated CW Morse Code beacon with either rpitx-ui or rpitx v2.  Use the [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon-ui.sh) script with rpitx-ui or the [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) script with rpitx v2.
+The Bash scripts here implement a repeated CW Morse Code beacon with either rpitx-ui or rpitx v2.  
+Use the [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon-ui.sh) script with rpitx-ui or the [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) script with rpitx v2.
 
-Rpitx v2 lacks the ITU Morse Code punctuation and produces Morse Code emissions that are difficult to decode due to unusual element and character spacing and rhythm.  Here below is also an improved morse C++ source code for rpitx v2 that remedies those issues.  Rpitx-ui already includes the punctuation and produces well-spaced Morse Code characters and words.
+Rpitx v2 lacks the ITU Morse Code punctuation and produces Morse Code emissions that are difficult to decode due to unusual element and character spacing and rhythm.  Here below is also an improved morse C++ source code for rpitx v2 that remedies those issues.  
+Rpitx-ui already includes the punctuation and produces well-spaced Morse Code characters and words.
 
 ## Video of Rpitx's 10 mW 7038 kHz test signal heard at KPH WebSDR in Point Reyes, CA (160 km)
 [![Rpitx's 10 mW 7038 kHz test signal heard in Point Reyes, CA](https://img.youtube.com/vi/-MB4Yt-R6-c/0.jpg)](https://www.youtube.com/watch?v=-MB4Yt-R6-c)
@@ -79,7 +81,7 @@ Run it from the rpitx-ui directory.
 
 Below is a screenshot of a typical run.  
 * At each ENTER prompt the user may accept the proposed default or input an alternative.  
-The user may edit the script with a text editor to change the default values.
+The user may use a text editor to change the default values in the script.
 * During transmission, the NTP sync is disabled to avoid the random frequency variations that are observed on the Raspberry Pi Zero.
 * The screen displays a timestamp and a consecutive serial number during each transmission.
 * The user may stop the beacon by pressing Ctrl+C during the pauses between transmissions.
