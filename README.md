@@ -5,7 +5,8 @@
 The Bash scripts here implement a repeated CW Morse Code beacon with either rpitx-ui or rpitx v2.  
 Use the [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon-ui.sh) script with rpitx-ui or the [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) script with rpitx v2.
 
-Rpitx v2 lacks the ITU Morse Code punctuation and produces Morse Code emissions that are difficult to decode due to unusual element and character spacing and rhythm.  Here below is also an improved morse C++ source code for rpitx v2 that remedies those issues.  
+Rpitx v2 lacks the ITU Morse Code punctuation and produces code with unusual character and word spacing and rhythm.  
+Here below is also an improved morse C++ source code for rpitx v2 that remedies those issues.  
 Rpitx-ui already includes the punctuation and produces well-spaced Morse Code characters and words.
 
 ## Video of Rpitx's 10 mW 7038 kHz test signal heard at KPH WebSDR in Point Reyes, CA (160 km)
