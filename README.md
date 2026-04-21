@@ -1,9 +1,10 @@
-# rpitx-ui & rpitx v2 Morse Code and CW Beacon
-**[Rpitx v2](https://github.com/F5OEO/rpitx) by Evariste Courjaud, F5OEO,** runs a Raspberry Pi single board computer as a low power (~10 dBm) radio frequency transmitter with various modulation schemes.  The Morse Code emissions produced by rpitx v2 may be difficult to decode due to unusual element and character spacing and rhythm.  Here is an improved morse C++ source code and executable that corrects the timing and adds the International Morse Code punctuation to rpitx v2.  
+# rpitx-ui & rpitx v2 CW Beacon and Morse Code
 
-I also present bash scripts that implement a repeated CW Morse Code beacon message for rpitx-ui and for rpitx v2.
+**Ihar Yatsevich's [rpitx-ui](https://github.com/IgrikXD/rpitx-ui)** for Raspberry Pi OS 64-bit Trixie and **Evariste Courjaud, F5OEO's [Rpitx v2](https://github.com/F5OEO/rpitx)** for Bookworm and earlier Raspberry Pi OS versions turn a Raspberry Pi single board computer into a low power (~10 dBm) radio frequency transmitter with various modulation schemes.  
 
-**Ihar Yatsevich's [rpitx-ui](https://github.com/IgrikXD/rpitx-ui)** already includes the punctuation and produces well-spaced Morse Code characters and words.  Use the [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon-ui.sh) script to implement the CW beacon function in rpitx-ui.
+The Bash scripts here implement a repeated CW Morse Code beacon with either rpitx-ui or rpitx v2.  Use the [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon-ui.sh) script with rpitx-ui or the [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) script with rpitx v2.
+
+Rpitx v2 lacks the ITU Morse Code punctuation and produces Morse Code emissions that are difficult to decode due to unusual element and character spacing and rhythm.  Here below is also an improved morse C++ source code for rpitx v2 that remedies those issues.  Rpitx-ui already includes the punctuation and produces well-spaced Morse Code characters and words.
 
 ## Video of Rpitx's 10 mW 7038 kHz test signal heard at KPH WebSDR in Point Reyes, CA (160 km)
 [![Rpitx's 10 mW 7038 kHz test signal heard in Point Reyes, CA](https://img.youtube.com/vi/-MB4Yt-R6-c/0.jpg)](https://www.youtube.com/watch?v=-MB4Yt-R6-c)
@@ -73,6 +74,18 @@ Make cw_beacon.sh Executable.
 Run it from the rpitx-ui directory.
 
 	 ~/rpitx-ui$ ./cw_beacon-ui.sh
+
+# Execute the Morse Code Beacon
+
+Below is a screenshot of a typical run.  
+* At each ENTER prompt the user may accept the proposed default or input an alternative.
+* During transmission, the NTP sync is disabled to avoid random the frequency variations that are observed on the Raspberry Pi Zero.
+* The screen displays a timestamp and a consecutive serial number during each transmission.
+* The user may stop the beacon by pressing Ctrl+C during the pauses between transmissions.
+* If the user specifies a maximum count, the beacon will automatically stop after that count.
+* After the beacon stops, the NTP sync is enabled and the script exits.
+
+<img width="605" height="514" alt="cw_beacon screenshot" src="https://github.com/user-attachments/assets/391c5ea9-ad39-48e2-bd6b-91317d27f644" />
 
 # (For rpitx v2 only) Add a Simple Morse Beacon to the easytest.sh script menu options.
 
