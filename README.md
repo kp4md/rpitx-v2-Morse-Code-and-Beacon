@@ -78,7 +78,8 @@ Run it from the rpitx-ui directory.
 # Execute the Morse Code Beacon
 
 Below is a screenshot of a typical run.  
-* At each ENTER prompt the user may accept the proposed default or input an alternative.  The user may edit the script with a text editor to change the default values.
+* At each ENTER prompt the user may accept the proposed default or input an alternative.  
+The user may edit the script with a text editor to change the default values.
 * During transmission, the NTP sync is disabled to avoid the random frequency variations that are observed on the Raspberry Pi Zero.
 * The screen displays a timestamp and a consecutive serial number during each transmission.
 * The user may stop the beacon by pressing Ctrl+C during the pauses between transmissions.
