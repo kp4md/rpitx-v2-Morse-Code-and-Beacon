@@ -121,7 +121,7 @@ do
 		else printf "%s UTC Sending #%d: %s\n" "$(date -u '+%Y-%m-%d %H:%M:%S')" "$n" "$MSG"
 	fi
 
-    testmorse.sh $FREQ $WPM "$MSG" >/dev/null 2>/dev/null
+    sudo pimorse $FREQ $WPM "$MSG" >/dev/null 2>/dev/null
 
     echo "Pausing: Press Ctrl+C now to stop."
     sleep 2
