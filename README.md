@@ -1,6 +1,6 @@
 # rpitx-ui & rpitx v2 CW Beacon and Morse Code
 
-**Ihar Yatsevich's [rpitx-ui](https://github.com/IgrikXD/rpitx-ui)** for Raspberry Pi OS 64-bit Trixie and **Evariste Courjaud, F5OEO's [rpitx v2](https://github.com/F5OEO/rpitx)** for Bookworm and earlier Raspberry Pi OS versions turn a Raspberry Pi single board computer into a low power (~10 dBm) radio frequency transmitter with various modulation schemes.  
+**Ihar Yatsevich's [rpitx-ui](https://github.com/IgrikXD/rpitx-ui)** for Raspberry Pi OS 64-bit Trixie and **Evariste Courjaud, F5OEO's [rpitx v2](https://github.com/F5OEO/rpitx)** for Bookworm and earlier Raspberry Pi OS versions turn a Raspberry Pi single board computer into a low power (~10 dBm) radio frequency transmitter with various modulation schemes.  The RF output from the Raspberry Pi pin GPIO4 is a harmonic-rich square wave and requires [a low pass filter](https://photos.app.goo.gl/FRvQL2BddtpLakz9A) and an appropriate license to transmit on the air.
 
 The Bash scripts here implement a repeated CW Morse Code beacon with either rpitx-ui or rpitx v2.  
 Use the [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon-ui.sh) script with rpitx-ui or the [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) script with rpitx v2.
