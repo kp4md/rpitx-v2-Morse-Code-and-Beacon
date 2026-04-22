@@ -1,12 +1,11 @@
 # rpitx-ui & rpitx v2 CW Beacon and Morse Code
 
-**Ihar Yatsevich's [rpitx-ui](https://github.com/IgrikXD/rpitx-ui)** for Raspberry Pi OS 64-bit Trixie and **Evariste Courjaud, F5OEO's [Rpitx v2](https://github.com/F5OEO/rpitx)** for Bookworm and earlier Raspberry Pi OS versions turn a Raspberry Pi single board computer into a low power (~10 dBm) radio frequency transmitter with various modulation schemes.  
+**Ihar Yatsevich's [rpitx-ui](https://github.com/IgrikXD/rpitx-ui)** for Raspberry Pi OS 64-bit Trixie and **Evariste Courjaud, F5OEO's [rpitx v2](https://github.com/F5OEO/rpitx)** for Bookworm and earlier Raspberry Pi OS versions turn a Raspberry Pi single board computer into a low power (~10 dBm) radio frequency transmitter with various modulation schemes.  
 
 The Bash scripts here implement a repeated CW Morse Code beacon with either rpitx-ui or rpitx v2.  
 Use the [cw_beacon-ui.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon-ui.sh) script with rpitx-ui or the [cw_beacon.sh](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/cw_beacon.sh) script with rpitx v2.
 
-Rpitx v2 lacks the ITU Morse Code punctuation and produces code with unusual character and word spacing and rhythm.  
-Here below is also an improved morse C++ source code for rpitx v2 that remedies those issues.  
+Rpitx v2 lacks the ITU Morse Code punctuation and produces code with unusual character and word spacing and rhythm.  Here below is also an improved morse C++ source code for rpitx v2 that remedies those issues.  
 Rpitx-ui already includes the punctuation and produces well-spaced Morse Code characters and words.
 
 ## Video of Rpitx's 10 mW 7038 kHz test signal heard at KPH WebSDR in Point Reyes, CA (160 km)
