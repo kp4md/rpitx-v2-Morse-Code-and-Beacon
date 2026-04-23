@@ -151,7 +151,7 @@ VHF EXAMPLE (sends CQ CQ TEST once on 144.1 MHz at 20 WPM):
 An appropriate Low Pass Filter must be used between Raspberry Pi pin GPIO4 and the antenna to suppress undesired harmonics that can cause interference to others.  [7-pole Chebyshev low pass filter kits](https://www.qrp-labs.com/lpfkit.html) for many frequency bands are available from QRP-Labs and elsewhere.  
 Users may also use [these W3NQN filter design plans](https://www.qrp-labs.com/images/lpfkit/gqrplpf.pdf) to build their own low pass filters.
 
-<img width="512" height="384" alt="A 28 MHz Low Pass Filter" src="https://github.com/user-attachments/assets/ff376351-2eb4-4ad9-8caf-37f46c83ae76" /> 
+[<img width="512" height="384" alt="A 28 MHz Low Pass Filter" src="https://github.com/user-attachments/assets/ff376351-2eb4-4ad9-8caf-37f46c83ae76" />](https://photos.app.goo.gl/FRvQL2BddtpLakz9A) 
 <img width="522" height="157" alt="Low Pass Filter Schematic Diagram" src="https://github.com/user-attachments/assets/2cc19c36-8433-479e-bbd0-1296e3ef6c08" />
 
 # Contact information:
