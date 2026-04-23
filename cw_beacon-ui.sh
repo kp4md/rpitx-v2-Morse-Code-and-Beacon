@@ -123,6 +123,13 @@ do
 
     sudo pimorse $FREQ $WPM "$MSG" >/dev/null 2>/dev/null
 
+    # Exit condition check
+    if (( MAXLOOPS > 0 && n >= MAXLOOPS )); then
+        echo
+	echo "Reached maximum count ($MAXLOOPS). Exiting."
+        break
+    fi
+
     echo "Pausing: Press Ctrl+C now to stop."
     sleep 2
 
@@ -133,12 +140,6 @@ do
 
     if (( REMAIN > 0 )); then
         sleep $REMAIN
-    fi
-
-    # Exit condition check
-    if (( MAXLOOPS > 0 && n >= MAXLOOPS )); then
-        echo "Reached maximum count ($MAXLOOPS). Exiting."
-        break
     fi
 done
 
