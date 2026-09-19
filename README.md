@@ -90,6 +90,96 @@ The user may use a text editor to change the default values in the script.
 
 <img width="605" height="514" alt="cw_beacon screenshot" src="https://github.com/user-attachments/assets/391c5ea9-ad39-48e2-bd6b-91317d27f644" />
 
+# Autostart Morse Code Beacon script
+
+Add this auto_beacon.sh script in the rpitx-ui directory to enable a Morse Code beacon that automatically starts upon boot up.
+Substitute each instance of "rpitx" for "rpitx-ui" in the following instructions if using rpitx.
+
+Access the command-line interface by opening a Terminal window or ssh into your Raspberry Pi and Navigate to the rpitx-ui folder.
+
+	~$ cd rpitx-ui 
+ 
+Open the Nano text editor to create the file
+
+ 	~/rpitx-ui$ nano auto_beacon.sh
+
+Then copy and paste the following into the Nano edit window.
+
+	#!/bin/bash
+	# Edit only the 5 lines below the sudo line with the following values:
+	# The beacon frequency in Hz.
+	# The speed in words per minute.
+	# The repetition period in seconds.
+	# The number of repetitions. (0 = infinite)
+	# The message text.
+	sudo ./cw_beacon-ui.sh <<EOF
+	28250000
+	15
+	25
+	0
+	VVV VVV DE CALLSIGN CALLSIGN +
+	# Do not edit below here.
+	EOF
+
+Edit the five indicated lines with your preferences, then Save and exit from Nano. 
+
+	Ctrl+O → Enter
+	Ctrl+X
+
+Make auto_beacon.sh Executable.
+
+	 ~/rpitx-ui$ chmod +x auto_beacon.sh
+
+Add the beacon.service file.
+
+	~/rpitx-ui$ cd /etc/systemd/system
+
+Open the Nano text editor to create the file
+
+ 	~/etc/systemd/system$ nano beacon.service
+
+Then copy and paste the following into the Nano edit window.
+	
+	[Unit]
+	Description=Beacon Bash Script
+	After=multi-user.target
+
+	[Service]
+	# Uncomment the next two lines for use with rpitx
+	# ExecStart=/bin/bash /home/pi/rpitx/auto_beacon.sh
+	# WorkingDirectory=/home/pi/rpitx
+	# Uncomment the next two lines for use with rpitx-ui
+	ExecStart=/bin/bash /home/pi/rpitx-ui/auto_beacon.sh
+	WorkingDirectory=/home/pi/rpitx-ui
+	StandardOutput=inherit
+	StandardError=inherit
+	Restart=always
+	User=root
+	
+	[Install]
+	WantedBy=multi-user.target
+
+Save and exit from Nano. 
+
+	Ctrl+O → Enter
+	Ctrl+X
+
+To start the service enter the following commands:
+
+	sudo systemctl daemon-reload
+	sudo systemctl enable beacon.service
+	sudo systemctl start beacon.service
+
+The automatic beacon will start immediately and every time the Raspberry Pi boots up in the future.
+
+To temporarily stop the beacon enter:
+
+	sudo systemctl stop beacon.service
+
+To permanently stop the beacon enter:
+
+	sudo systemctl disable beacon.service
+
 # (For rpitx v2 only) Add a Simple Morse Beacon to the easytest.sh script menu options.
 
 Follow the same procedure as above, but use the Nano text editor to replace the original easytest.sh script with [this one](https://github.com/kp4md/rpitx-v2-Morse-Code-and-Beacon/blob/main/easytest.sh).  You can edit line 245 of the script to change the 15 WPM speed and the repeating "VVV DE *callsign*" message.  Enter Ctrl-C to stop the repeating beacon.
