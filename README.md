@@ -243,6 +243,12 @@ Users may also use [these W3NQN filter design plans](https://www.qrp-labs.com/im
 
 [<img width="512" height="384" alt="A 28 MHz Low Pass Filter" src="https://github.com/user-attachments/assets/ff376351-2eb4-4ad9-8caf-37f46c83ae76" />](https://photos.app.goo.gl/FRvQL2BddtpLakz9A) 
 [<img width="522" height="157" alt="Low Pass Filter Schematic Diagram" src="https://github.com/user-attachments/assets/2cc19c36-8433-479e-bbd0-1296e3ef6c08" />](https://www.qrp-labs.com/images/lpfkit/gqrplpf.pdf)
+<img width="512" height="384" alt="Low Pass Filter atop a Raspberry Pi Zero 2W" src="https://github.com/user-attachments/assets/368eae2b-c40c-4ed8-827d-96dddae85596" />
+
+The RF connector board mates with the Raspberry Pi Zero 2W & the plug-in low pass filter modules through header sockets.  
+A 0.01 µF DC blocking capacitor connects pin GPIO4 to the left SMA connector and to the input of the low pass filter. 
+The output from the low pass filter goes to the right SMA connector.  
+The grounds pins of the SMA connectors, the low pass filter and Raspberry Pi are all tied together.
 
 # Contact information:
 Please contact me with any feedback or suggestions.
